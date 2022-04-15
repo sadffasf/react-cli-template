@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/254.d39e68f8.chunk.js","mappings":"6UAIK,O,8BAFD,WACI,OAAO,wCACV,E,CAHwBA,EAAAA","sources":["page/dog/index.js"],"sourcesContent":["import React,{Component} from 'react'\r\nexport default class extends Component{\r\n    render() {\r\n        return <div>狗</div>\r\n    }\r\n}"],"names":["Component"],"sourceRoot":""}
