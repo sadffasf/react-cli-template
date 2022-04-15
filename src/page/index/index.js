@@ -1,7 +1,8 @@
 import React,{Component} from 'react'
+import {Cats} from "src/component/test";
 
 export default class extends Component{
     render() {
-        return <div>index页，你好</div>
+        return <div><Cats /></div>
     }
 }
