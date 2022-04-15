@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/853.b8933e2b.chunk.js","mappings":"8UAKK,O,8BAFD,WACI,OAAO,+DACV,E,CAHwBA,EAAAA","sources":["page/index/index.js"],"sourcesContent":["import React,{Component} from 'react'\r\n\r\nexport default class extends Component{\r\n    render() {\r\n        return <div>index页，你好</div>\r\n    }\r\n}"],"names":["Component"],"sourceRoot":""}
