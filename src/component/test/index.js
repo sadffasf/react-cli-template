@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import './test.css';
 import justifiedLayout from 'justified-layout';
+import {Image,Button} from "antd";
 
 
 export const Cats = (props)=>{
@@ -26,11 +27,10 @@ export const Cats = (props)=>{
 
     return (<div>
         <div>
-            <button onClick={()=>{
+            <Button type="primary" onClick={()=>{
                 getCatPhotos();
             }}
-
-            >换一批</button>
+            >换一批</Button>
         </div>
         <div id="catContainer" style={{position:'relative',width:'100%'}}>
             {
@@ -43,7 +43,9 @@ export const Cats = (props)=>{
                         left:item.left+'px',
                         top:item.top+'px'
                     }
-                    return <img key={index} style={style} src={imageItem.url} alt=""/>
+                    return <div  key={index} style={style}>
+                        <Image placeholder={<div style={{width:'100%',height:'100%',background:"#ddd"}}></div>} width={item.width} height={item.height} src={imageItem.url} alt=""/>
+                    </div>
                 })
             }
         </div>

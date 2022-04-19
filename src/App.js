@@ -1,14 +1,30 @@
 import logo from "./logo.svg";
-import {lazy,Suspense  } from 'react'
+import {lazy, Suspense, useEffect, useState} from 'react'
 import 'antd/dist/antd.css';
 import "./App.css";
 import {Layout, Menu,Spin } from 'antd';
 import {BrowserRouter, Route, Routes, Outlet, Link } from "react-router-dom";
+import justifiedLayout from "justified-layout";
 
 const  PageIndex = lazy(()=>import('./page/index') )
 const  PageCat = lazy(()=>import('./page/cat') )
 const  PageDog = lazy(()=>import('./page/dog') )
 const {Header, Content} = Layout;
+
+const Home = ()=>{
+    const [data,setData] = useState({})
+    useEffect(()=>{
+        fetch('https://saying.api.azwcl.com/saying/get').then((response)=>{return response.json()}).then(data=>{
+            setData(data.data);
+            console.log(data);
+        })
+    },[])
+
+    return <div>
+        <div>{data.content}   ——<span>{data.author}</span></div>
+        <Outlet/>
+    </div>
+}
 
 
 const LayoutApp = () => {
@@ -34,10 +50,7 @@ const LayoutApp = () => {
                     <div style={{flex: 1, width: '100%', height: '100%', overflow: 'auto'}}>
 
                         <Routes>
-                            <Route path='/' element={<div>
-                                <div>来自home组件的信息，永远不会变的</div>
-                                <Outlet/>
-                            </div>}>
+                            <Route path='/' element={<Home />}>
                                 <Route index element={ <Suspense fallback={<Spin /> }><PageIndex/></Suspense>      }></Route>
                                 <Route path='cat' element={ <Suspense fallback={<Spin /> }><PageCat/></Suspense> }></Route>
                                 <Route path='dog' element={ <Suspense fallback={<Spin /> }><PageDog/></Suspense>}></Route>
