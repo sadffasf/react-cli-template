@@ -3,28 +3,15 @@ import {lazy, Suspense, useEffect, useState} from 'react'
 import 'antd/dist/antd.css';
 import "./App.css";
 import {Layout, Menu,Spin } from 'antd';
-import {BrowserRouter, Route, Routes, Outlet, Link } from "react-router-dom";
-import justifiedLayout from "justified-layout";
+import {BrowserRouter, Route, Routes,Navigate, Link } from "react-router-dom";
+
 
 const  PageIndex = lazy(()=>import('./page/index') )
 const  PageCat = lazy(()=>import('./page/cat') )
 const  PageDog = lazy(()=>import('./page/dog') )
 const {Header, Content} = Layout;
 
-const Home = ()=>{
-    const [data,setData] = useState({})
-    useEffect(()=>{
-        fetch('https://saying.api.azwcl.com/saying/get').then((response)=>{return response.json()}).then(data=>{
-            setData(data.data);
-            console.log(data);
-        })
-    },[])
 
-    return <div>
-        <div>{data.content}   ——<span>{data.author}</span></div>
-        <Outlet/>
-    </div>
-}
 
 
 const LayoutApp = () => {
@@ -50,10 +37,10 @@ const LayoutApp = () => {
                     <div style={{flex: 1, width: '100%', height: '100%', overflow: 'auto'}}>
 
                         <Routes>
-                            <Route path='/' element={<Home />}>
-                                <Route index element={ <Suspense fallback={<Spin /> }><PageIndex/></Suspense>      }></Route>
-                                <Route path='cat' element={ <Suspense fallback={<Spin /> }><PageCat/></Suspense> }></Route>
-                                <Route path='dog' element={ <Suspense fallback={<Spin /> }><PageDog/></Suspense>}></Route>
+                                <Route path='/' element={<Navigate to="/index" />}></Route>
+                                <Route path='/index' element={ <Suspense fallback={<Spin /> }><PageIndex/></Suspense>      }></Route>
+                                <Route path='/cat' element={ <Suspense fallback={<Spin /> }><PageCat/></Suspense> }></Route>
+                                <Route path='/dog' element={ <Suspense fallback={<Spin /> }><PageDog/></Suspense>}></Route>
                                 <Route
                                     path="*"
                                     element={
@@ -62,7 +49,6 @@ const LayoutApp = () => {
                                         </main>
                                     }
                                 />
-                            </Route>
                         </Routes>
 
                     </div>

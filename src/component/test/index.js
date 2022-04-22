@@ -3,7 +3,7 @@ import './test.css';
 import justifiedLayout from 'justified-layout';
 import {defaultImgSrc} from 'src/constants'
 import {Image,Button} from "antd";
-import log from "tailwindcss/src/util/log";
+import myFetch from 'src/service/fetch'
 
 
 const JustifyLayout = (props)=>{
@@ -43,8 +43,9 @@ export const Cats = (props)=>{
     const [catList,setCatList] = useState([]);
 
 
+
     const getCatPhotos = ()=>{
-       return fetch('https://api.thecatapi.com/v1/images/search?limit=30').then((response)=>{return response.json()})
+        return    myFetch('https://api.thecatapi.com/v1/images/search?limit=30')
     }
 
 
