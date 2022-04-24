@@ -1,5 +1,6 @@
 import logo from "./logo.svg";
 import {lazy, Suspense, useEffect, useState} from 'react'
+import {observer} from 'mobx-react';
 import 'antd/dist/antd.css';
 import "./App.css";
 import {Layout, Menu,Spin } from 'antd';

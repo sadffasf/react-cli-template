@@ -4,7 +4,6 @@
   "private": true,
   "homepage": "./index",
   "dependencies": {
-    "@babel/core": "^7.16.0",
     "@craco/craco": "^6.4.3",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
     "@svgr/webpack": "^5.5.0",
@@ -38,6 +37,8 @@
     "jest-watch-typeahead": "^1.0.0",
     "justified-layout": "^4.1.0",
     "mini-css-extract-plugin": "^2.4.5",
+    "mobx": "^6.5.0",
+    "mobx-react": "^7.3.0",
     "postcss": "^8.4.4",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-loader": "^6.2.1",
@@ -155,10 +156,19 @@
   },
   "babel": {
     "presets": [
-      "react-app"
+      "react-app",
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      ["@babel/plugin-proposal-decorators", { "legacy": true }],
+      ["@babel/plugin-proposal-class-properties", { "loose": true }]
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/plugin-proposal-decorators": "^7.17.9",
+    "@babel/preset-env": "^7.16.11",
     "gh-pages": "^3.2.3"
   }
 }
