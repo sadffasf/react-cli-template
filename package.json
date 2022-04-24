@@ -31,11 +31,13 @@
     "fs-extra": "^10.0.0",
     "html-webpack-plugin": "^5.5.0",
     "http-proxy-middleware": "^2.0.4",
+    "husky": "^7.0.4",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.4.3",
     "jest-resolve": "^27.4.2",
     "jest-watch-typeahead": "^1.0.0",
     "justified-layout": "^4.1.0",
+    "lint-staged": "^12.4.0",
     "mini-css-extract-plugin": "^2.4.5",
     "mobx": "^6.5.0",
     "mobx-react": "^7.3.0",
@@ -44,6 +46,7 @@
     "postcss-loader": "^6.2.1",
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^7.0.1",
+    "prettier": "^2.6.2",
     "prompts": "^2.4.2",
     "react": "^18.0.0",
     "react-app-polyfill": "^3.0.0",
@@ -151,7 +154,8 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write"
+      "prettier --write",
+      "git add"
     ]
   },
   "babel": {
@@ -160,8 +164,18 @@
       "@babel/preset-env"
     ],
     "plugins": [
-      ["@babel/plugin-proposal-decorators", { "legacy": true }],
-      ["@babel/plugin-proposal-class-properties", { "loose": true }]
+      [
+        "@babel/plugin-proposal-decorators",
+        {
+          "legacy": true
+        }
+      ],
+      [
+        "@babel/plugin-proposal-class-properties",
+        {
+          "loose": true
+        }
+      ]
     ]
   },
   "devDependencies": {
