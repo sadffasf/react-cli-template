@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import {Cats} from "src/component/test";
+import {Cats} from "./test";
 
 export default class extends Component{
     render() {
