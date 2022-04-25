@@ -15,12 +15,11 @@ const Dog = ()=>{
                 </div>
                <div>
                    {
-                       curStore.loading ? <Spin /> : <Image width={500} placeholder={<Spin tip="图片正在加载中。。。"></Spin>} src={curStore.url}></Image>
+                       curStore.loading ? <Spin  tip="数据正在请求中。。" /> : <Image width={500} placeholder={<Spin tip="图片正在加载中。。。"></Spin>} src={curStore.url}></Image>
                    }
                </div>
             </div>
         )
 }
-
 
 export default observer(Dog)
