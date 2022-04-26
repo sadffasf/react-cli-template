@@ -1,7 +1,7 @@
 import 'antd/dist/antd.css';
 import "./App.css";
 import {Layout, Menu} from 'antd';
-import {BrowserRouter as Router, Link,useRoutes} from 'react-router-dom';
+import {HashRouter as Router, Link} from 'react-router-dom';
 import PageRoutes from "./router";
 import React, {useEffect, useState} from "react";
 import myFetch from "./service/fetch";
