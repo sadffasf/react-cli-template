@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from "react";
-import './test.css';
+import styles  from './test.module.css';
 import justifiedLayout from 'justified-layout';
 import {Image,Button} from "antd";
 import myFetch from 'src/service/fetch'
@@ -46,7 +46,7 @@ export const Cats = (props)=>{
         getOtherCats();
     },[])
     return (<div>
-        <div>
+        <div className={styles.others} >
             <Button type="primary" onClick={()=>{
                 getOtherCats()
             }}
