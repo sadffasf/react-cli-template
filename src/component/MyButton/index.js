@@ -1,0 +1,10 @@
+import React from "react";
+import "./index.css";
+const MyButton = (props) => {
+  return (
+    <button className="graybtn" {...props}>
+      {props.children}
+    </button>
+  );
+};
+export default MyButton;
