@@ -1,5 +1,5 @@
 import "antd/dist/antd.css";
-import "./App.css";
+import "./App.scss";
 import "./common.scss";
 import { HashRouter as Router } from "react-router-dom";
 import LayoutApp from "src/layout";
