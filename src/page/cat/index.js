@@ -11,7 +11,7 @@ const Cats = () => {
     <div className={styles["cat-page"]}>
       <div>
         <button
-          className={`graybtn ${styles.others}`}
+          className={`gray-btn ${styles.others}`}
           onClick={() => {
             curStore.getCatPhotos();
           }}

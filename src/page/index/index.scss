@@ -1,4 +1,14 @@
-
+.index-page-box{
+  .main-content{
+    width: 1200px;
+    margin: 0 auto;
+    .eth-message{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+  }
+}
 
 
 

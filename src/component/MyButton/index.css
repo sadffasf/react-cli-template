@@ -1,5 +1,5 @@
 
-.graybtn {
+.gray-btn {
     -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
     -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
     box-shadow:inset 0px 1px 0px 0px #ffffff;
@@ -20,13 +20,13 @@
     text-decoration:none;
     text-shadow:1px 1px 0px #ffffff;
 }
-.graybtn:hover {
+.gray-btn:hover {
     background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #d1d1d1), color-stop(1, #ffffff) );
     background:-moz-linear-gradient( center top, #d1d1d1 5%, #ffffff 100% );
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d1d1d1', endColorstr='#ffffff');
     background-color:#d1d1d1;
 }
-.graybtn:active {
+.gray-btn:active {
     position:relative;
     top:1px;
 }
