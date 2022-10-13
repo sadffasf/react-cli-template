@@ -19,6 +19,9 @@ const LayoutApp = () => {
           <Menu.Item key="3">
             <Link to="/dog">Dog</Link>
           </Menu.Item>
+          <Menu.Item key="4">
+            <Link to="/contributor">创作者中心</Link>
+          </Menu.Item>
         </Menu>
       </Header>
       {/*内容区*/}

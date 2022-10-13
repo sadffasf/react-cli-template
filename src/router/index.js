@@ -5,6 +5,7 @@ import styles from "./index.module.scss";
 const Index = lazy(() => import("src/page/index"));
 const Cat = lazy(() => import("src/page/cat"));
 const Dog = lazy(() => import("src/page/dog"));
+const Contributor = lazy(() => import("src/page/contributor"));
 
 const routes = [
   {
@@ -22,6 +23,10 @@ const routes = [
   {
     path: "dog",
     element: <Dog />,
+  },
+  {
+    path: "contributor",
+    element: <Contributor />,
   },
   {
     path: "*",
