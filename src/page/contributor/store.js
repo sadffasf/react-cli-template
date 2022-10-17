@@ -1,5 +1,6 @@
 import { observable, action, makeObservable } from "mobx";
-import myFetch from "src/service/fetch";
+import { getUserInfo } from "src/api";
+
 class DogStore {
   @observable list = [];
   @observable id = ""; //用户id
@@ -7,6 +8,23 @@ class DogStore {
   @observable url = null;
   @observable loading = false;
   @observable hasLogin = false;
+  @action getUserInfo() {
+    this.axiosLogin();
+  }
+  @action axiosLogin() {
+    getUserInfo({
+      headers: {
+        testUserId: this.id,
+      },
+      loading: true,
+    })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
   @action login() {
     this.loading = true;
     const headers = new Headers();
@@ -40,6 +58,7 @@ class DogStore {
   constructor() {
     /*高版本mobx必须*/
     makeObservable(this);
+    this.getUserInfo();
   }
 }
 export default new DogStore();

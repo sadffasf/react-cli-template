@@ -21,7 +21,8 @@ const Main = () => {
         <Button
           loading={curStore.loading}
           onClick={() => {
-            curStore.login();
+            curStore.axiosLogin();
+            // curStore.login();
           }}
         >
           {curStore.loading ? "登录中.." : "登录"}
