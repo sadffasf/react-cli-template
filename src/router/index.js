@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import { Navigate, useRoutes } from "react-router-dom";
+import { BrowserRouter, Navigate, useRoutes } from "react-router-dom";
 import styles from "./index.module.scss";
 
 const Index = lazy(() => import("src/page/index"));

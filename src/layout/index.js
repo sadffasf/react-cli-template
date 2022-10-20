@@ -1,27 +1,47 @@
 import { Layout, Menu } from "antd";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import React from "react";
 import PageRoutes from "src/router";
 const { Header, Content } = Layout;
 
 const LayoutApp = () => {
+  let location = useLocation();
+  const navList = [
+    {
+      key: "index",
+      path: "/index",
+      text: "Home",
+    },
+    {
+      key: "cat",
+      path: "/cat",
+      text: "Cat",
+    },
+    {
+      key: "dog",
+      path: "/dog",
+      text: "Dog",
+    },
+    {
+      key: "contributor",
+      path: "/contributor",
+      text: "创作者中心",
+    },
+  ];
+  const path = location.pathname.slice(1);
+
   return (
     <Layout className="layout-app">
       {/*头部*/}
       <Header>
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
-          <Menu.Item key="1">
-            <Link to="/">Home</Link>
-          </Menu.Item>
-          <Menu.Item key="2">
-            <Link to="/cat">Cat</Link>
-          </Menu.Item>
-          <Menu.Item key="3">
-            <Link to="/dog">Dog</Link>
-          </Menu.Item>
-          <Menu.Item key="4">
-            <Link to="/contributor">创作者中心</Link>
-          </Menu.Item>
+        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={[path]}>
+          {navList.map((item) => {
+            return (
+              <Menu.Item key={item.key}>
+                <NavLink to={item.path}>{item.text}</NavLink>
+              </Menu.Item>
+            );
+          })}
         </Menu>
       </Header>
       {/*内容区*/}

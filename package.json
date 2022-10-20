@@ -2,7 +2,7 @@
   "name": "my-react-template",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sadffasf.github.io/react-cli-template/",
+  "homepage": "/",
   "dependencies": {
     "@craco/craco": "^6.4.3",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
