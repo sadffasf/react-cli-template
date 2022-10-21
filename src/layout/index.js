@@ -2,6 +2,8 @@ import { Layout, Menu } from "antd";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import React from "react";
 import PageRoutes from "src/router";
+import Login from "src/page/login";
+import loginStore from "src/page/login/store";
 const { Header, Content } = Layout;
 
 const LayoutApp = () => {
@@ -29,7 +31,9 @@ const LayoutApp = () => {
     },
   ];
   const path = location.pathname.slice(1);
-
+  if (path == "login") {
+    return <Login />;
+  }
   return (
     <Layout className="layout-app">
       {/*头部*/}

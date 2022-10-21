@@ -16,10 +16,14 @@ const errorDeal = (status) => {
       break;
     case 401:
       errMessage = "未授权，请重新登录";
-      message.error(errMessage);
-      return;
-      /*      window.location.href =
-        "/login?redirectUrl=" + encodeURIComponent(window.location.href);*/
+      localStorage.removeItem("authToken");
+      if (window.location.pathname != "/login") {
+        setTimeout(function () {
+          window.location.href =
+            "/login?redirectUrl=" + encodeURIComponent(window.location.href);
+        }, 1000);
+      }
+
       break;
     case 403:
       errMessage = "拒绝访问";

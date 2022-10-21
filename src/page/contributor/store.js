@@ -1,7 +1,7 @@
 import { observable, action, makeObservable } from "mobx";
 import { getUserInfo } from "src/api";
 
-class DogStore {
+class ContributorStore {
   @observable list = [];
   @observable id = ""; //用户id
   @observable userInfo = {}; //用户信息
@@ -61,4 +61,4 @@ class DogStore {
     this.getUserInfo();
   }
 }
-export default new DogStore();
+export default new ContributorStore();
