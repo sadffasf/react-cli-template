@@ -2,41 +2,55 @@ import React, { useRef, useEffect, useState } from "react";
 import { Button, Image, Spin, Input, Space } from "antd";
 import { observer, useLocalObservable } from "mobx-react";
 import store from "./store";
-// import styles from "./index.module.scss";
+import styles from "./index.module.scss";
 
 /*登录组件*/
 const Main = () => {
   const curStore = useLocalObservable(() => store);
   return (
-    <div style={{ width: "200px" }}>
-      <div>
-        <Input
-          placeholder="请输入用户Id"
-          value={curStore.userName}
-          onChange={(e) => {
-            const value = e.target.value;
-            curStore.userName = value;
-          }}
-        ></Input>
-      </div>
-      <div>
-        <Input
-          placeholder="请输入密码"
-          value={curStore.password}
-          onChange={(e) => {
-            const value = e.target.value;
-            curStore.password = value;
-          }}
-        ></Input>
-      </div>
-      <Button
-        // loading={curStore.loading}
-        onClick={() => {
-          curStore.login();
-        }}
-      >
-        {curStore.loading ? "登录中.." : "登录"}
-      </Button>
+    <div  className={styles['page-login']}>
+        <div>
+            <div className={styles['wave']}></div>
+            <div className={styles['wave']}></div>
+            <div className={styles['wave']}></div>
+        </div>
+        <div className={styles['login-box']}>
+          <Space direction="vertical" size={[22]}  split={<div style={{height:'20px'}}></div>}>
+                <Input
+                    style={{width:'100%'}}
+                    bordered={false}
+                  placeholder="请输入用户Id"
+                  value={curStore.userName}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    curStore.userName = value;
+                  }}
+                ></Input>
+                <Input
+                    style={{width:'100%'}}
+                    bordered={false}
+                  placeholder="请输入密码"
+                  value={curStore.password}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    curStore.password = value;
+                  }}
+                ></Input>
+
+              <Button
+                  block
+                  type="primary"
+                  ghost
+                  shape="round"
+                loading={curStore.loading}
+                onClick={() => {
+                  curStore.login();
+                }}
+              >
+                {curStore.loading ? "登录中.." : "登录"}
+              </Button>
+          </Space>
+        </div>
       <div>
         {curStore.hasLogin && (
           <span>
