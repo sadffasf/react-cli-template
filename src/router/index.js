@@ -6,26 +6,30 @@ const Index = lazy(() => import("src/page/index"));
 const Cat = lazy(() => import("src/page/cat"));
 const Dog = lazy(() => import("src/page/dog"));
 const Contributor = lazy(() => import("src/page/contributor"));
-
+const Login = lazy(() => import("src/page/login"));
 const routes = [
   {
     path: "",
     element: <Navigate to="/index" />,
   },
   {
+    path: "/login",
+    element: <Login />,
+  },
+  {
     path: "/index",
     element: <Index />,
   },
   {
-    path: "cat",
+    path: "/cat",
     element: <Cat />,
   },
   {
-    path: "dog",
+    path: "/dog",
     element: <Dog />,
   },
   {
-    path: "contributor",
+    path: "/contributor",
     element: <Contributor />,
   },
   {

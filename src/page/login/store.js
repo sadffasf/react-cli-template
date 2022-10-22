@@ -20,6 +20,7 @@ class LoginStore {
         if (res.d) {
           localStorage.setItem("authToken", res.d);
           this.hasLogin = true;
+          window.location.href = '/cat'
           this.getList();
         }
       })
